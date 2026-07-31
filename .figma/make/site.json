@@ -1,0 +1,10 @@
+{
+  "description": "Create and edit markdown documents effortlessly with a user-friendly interface, perfect for writers, developers, and content creators looking to streamline their workflow.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

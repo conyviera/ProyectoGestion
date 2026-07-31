@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-primary: #1E40AF;
+  --color-primary-fg: #ffffff;
+  --color-success: #16A34A;
+  --color-warning: #F59E0B;
+  --color-critical: #DC2626;
+  --color-page: #F5F7FA;
+  --color-surface: #ffffff;
+  --color-ink: #111827;
+  --color-ink-muted: #6B7280;
+  --color-border: #E5E7EB;
+  --color-sidebar: #0F172A;
+  --color-sidebar-hover: #1E2D4A;
+  --color-sidebar-active: #1E40AF;
+}
+
+* {
+  font-family: var(--font-sans);
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #F5F7FA;
+}
+
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+/* Thin scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+
+/* Pulse animation for critical badges */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(220, 38, 38, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+.pulse-critical {
+  animation: pulse-ring 2s infinite;
+}
+
+/* Skeleton loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #E5E7EB 25%, #F3F4F6 50%, #E5E7EB 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 4px;
+}
