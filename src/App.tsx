@@ -13,6 +13,7 @@ import Screen8Maintenance from './screens/Screen8Maintenance'
 import Screen9Reports from './screens/Screen9Reports'
 import Screen10Audit from './screens/Screen10Audit'
 import Screen11Config from './screens/Screen11Config'
+import Screen12Profile from './screens/Screen12Profile'
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('login')
@@ -32,6 +33,10 @@ export default function App() {
     setRole(r)
     // Técnico entra directo a la bandeja de alertas/mantenimiento
     setScreen(r === 'tecnico' ? 'alerts' : 'dashboard')
+  }
+
+  function handleLogout() {
+    setScreen('login')
   }
 
   if (screen === 'login') {
@@ -59,6 +64,7 @@ export default function App() {
         {screen === 'reports' && <Screen9Reports />}
         {screen === 'audit' && <Screen10Audit />}
         {screen === 'config' && <Screen11Config />}
+        {screen === 'profile' && <Screen12Profile role={role} onLogout={handleLogout} />}
       </main>
     </div>
   )

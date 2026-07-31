@@ -94,7 +94,26 @@ export default function Sidebar({ active, navigate, role }: SidebarProps) {
       </nav>
 
       {/* User */}
-      <div style={{ padding: '12px 12px', borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', gap: 9 }}>
+      <button
+        onClick={() => navigate('profile')}
+        style={{
+          padding: '12px 12px',
+          borderTop: '1px solid rgba(255,255,255,0.06)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 9,
+          background: active === 'profile' ? '#1E293B' : 'transparent',
+          border: 'none',
+          borderTopStyle: 'solid',
+          borderTopWidth: 1,
+          borderTopColor: 'rgba(255,255,255,0.06)',
+          cursor: 'pointer',
+          width: '100%',
+          textAlign: 'left',
+        }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = '#1E293B' }}
+        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = active === 'profile' ? '#1E293B' : 'transparent' }}
+      >
         <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'linear-gradient(135deg, #1E40AF, #60A5FA)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 700, color: '#fff', flexShrink: 0 }}>
           {role === 'gerente' ? 'GV' : role === 'supervisor' ? 'RS' : 'LR'}
         </div>
@@ -103,7 +122,7 @@ export default function Sidebar({ active, navigate, role }: SidebarProps) {
             {role === 'gerente' ? 'C. Gloria Valdés' : role === 'supervisor' ? 'R. Soto' : 'L. Rojas'}
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 4 }}>
-            <div style={{ 
+            <div style={{
               background: role === 'gerente' ? '#1E40AF' : role === 'supervisor' ? '#7C3AED' : '#B45309',
               color: '#fff', fontSize: 9, fontWeight: 700, padding: '2px 6px', borderRadius: 99, lineHeight: '12px'
             }}>
@@ -112,7 +131,7 @@ export default function Sidebar({ active, navigate, role }: SidebarProps) {
             <div style={{ color: '#475569', fontSize: 10 }}>Planta Maipú</div>
           </div>
         </div>
-      </div>
+      </button>
     </aside>
   )
 }

@@ -13,5 +13,6 @@ export type Screen =
   | 'reports'
   | 'audit'
   | 'config'
+  | 'profile'
 
 export type LineTab = 'A' | 'B'
